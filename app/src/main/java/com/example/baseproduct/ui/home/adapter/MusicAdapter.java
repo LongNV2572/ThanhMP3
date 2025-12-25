@@ -4,12 +4,14 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.baseproduct.call_api.model.MusicModel;
 import com.example.baseproduct.databinding.ItemMusicBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
@@ -17,8 +19,8 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
     private final List<MusicModel> musicList;
     private final OnMusicClickListener listener;
 
-    public MusicAdapter(List<MusicModel> musicList, OnMusicClickListener listener) {
-        this.musicList = musicList;
+    public MusicAdapter(OnMusicClickListener listener) {
+        this.musicList = new ArrayList<>();
         this.listener = listener;
     }
 
@@ -63,10 +65,46 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         }
     }
 
+    // Method cập nhật dữ liệu - cách đơn giản
     public void addListData(List<MusicModel> newList) {
+        if (newList != null) {
+            musicList.clear();
+            musicList.addAll(newList);
+            notifyDataSetChanged();
+        }
+    }
+
+    // Method cập nhật dữ liệu - với DiffUtil (hiệu suất tốt hơn)
+    public void updateMusicList(List<MusicModel> newList) {
+        if (newList == null) return;
+
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffUtil.Callback() {
+            @Override
+            public int getOldListSize() {
+                return musicList.size();
+            }
+
+            @Override
+            public int getNewListSize() {
+                return newList.size();
+            }
+
+            @Override
+            public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                return musicList.get(oldItemPosition).getId() == newList.get(newItemPosition).getId();
+            }
+
+            @Override
+            public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                MusicModel oldMusic = musicList.get(oldItemPosition);
+                MusicModel newMusic = newList.get(newItemPosition);
+                return oldMusic.getName().equals(newMusic.getName()) && oldMusic.getSinger().equals(newMusic.getSinger());
+            }
+        });
+
         musicList.clear();
         musicList.addAll(newList);
-        notifyDataSetChanged();
+        diffResult.dispatchUpdatesTo(this);
     }
 
     public interface OnMusicClickListener {

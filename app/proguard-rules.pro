@@ -33,3 +33,13 @@
 
 # google ads
 -keep class com.google.android.gms.internal.** { *; }
+
+-keep class com.example.baseproduct.call_api.model.MusicModel { *; }
+-keep class com.example.baseproduct.call_api.model.** { *; }
+
+# Keep model for Gson
+-keep class com.example.baseproduct.call_api.model.** { *; }
+
+# Keep Gson
+-keep class com.google.gson.** { *; }
+-dontwarn com.google.gson.**
