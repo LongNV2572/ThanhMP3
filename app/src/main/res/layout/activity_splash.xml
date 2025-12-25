@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:gravity="center">
 
     <ImageView
@@ -23,7 +24,7 @@
         android:fontFamily="@font/nunito_800"
         android:gravity="center"
         android:text="@string/app_name"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +38,7 @@
         android:layout_marginHorizontal="56dp"
         android:layout_marginBottom="20dp"
         android:indeterminate="true"
-        android:indeterminateTint="#D82D25"
+        android:indeterminateTint="@color/color_main"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

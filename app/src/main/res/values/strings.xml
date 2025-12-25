@@ -44,5 +44,6 @@
     <string name="are_you_sure_want_to_quit_app">Are you sure want to quit app?</string>
     <string name="no_internet_connection">No Internet Connection!</string>
     <string name="please_choose_your_language">Please choose your language</string>
+    <string name="what_do_you_want_to_listen_to">What do you want to listen to?</string>
 
 </resources>

@@ -66,4 +66,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:3.0.0'
+    implementation 'com.squareup.retrofit2:converter-gson:3.0.0'
+    implementation 'androidx.lifecycle:lifecycle-process:2.9.4'
+
+    implementation "com.squareup.okhttp3:okhttp:5.3.0"
+
+    implementation "com.makeramen:roundedimageview:2.3.0"
+    implementation "com.github.bumptech.glide:glide:5.0.5"
+
+    implementation "androidx.media3:media3-exoplayer:1.8.0"
+    implementation "androidx.media3:media3-ui:1.8.0"
+
 }
