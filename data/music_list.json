@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_1.jpg",
+    "ca_si": "Sơn Tùng M-TP",
+    "the_loai": "Pop",
+    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_1.mp3"
+  },
+  {
+    "id": 2,
+    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_2.jpg",
+    "ca_si": "Mỹ Tâm",
+    "the_loai": "Ballad",
+    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_2.mp3"
+  },
+  {
+    "id": 3,
+    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_3.jpg",
+    "ca_si": "Đen Vâu",
+    "the_loai": "Rap",
+    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_3.mp3"
+  },
+  {
+    "id": 4,
+    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_4.jpg",
+    "ca_si": "Hòa Minzy",
+    "the_loai": "Bolero",
+    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_4.mp3"
+  },
+  {
+    "id": 5,
+    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_5.jpg",
+    "ca_si": "Jack - J97",
+    "the_loai": "Pop",
+    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_5.mp3"
+  }
+]
