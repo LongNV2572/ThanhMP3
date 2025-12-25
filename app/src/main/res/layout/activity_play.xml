@@ -10,47 +10,39 @@
         android:id="@+id/view_top"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="12dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingHorizontal="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_left"
+            android:id="@+id/ivBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_tb_back" />
+            android:padding="8dp"
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/tv_tool_bar"
-            style="@style/ThemeTextRunning"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginHorizontal="8dp"
             android:layout_weight="1"
-            android:fontFamily="@font/svn_gilroy_700"
+            android:fontFamily="@font/nunito_700"
             android:text="@string/app_name"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_18ssp" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/iv_favourite"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="@dimen/_6sdp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_tb_favourite_sn" />
-
-        <ImageView
-            android:id="@+id/iv_more"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_tb_more" />
+            android:src="@drawable/ic_back"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
@@ -58,7 +50,7 @@
         android:id="@+id/view_cd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_top">
@@ -67,20 +59,9 @@
             android:id="@+id/iv_cd"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/_44sdp"
+            android:layout_marginHorizontal="44dp"
             android:background="@drawable/iv_play_cd"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_tonearm"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:src="@drawable/iv_tonearm_pause"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_cd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -92,8 +73,8 @@
         android:id="@+id/view_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_12sdp"
-        android:layout_marginVertical="@dimen/_24sdp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_cd">
@@ -105,7 +86,6 @@
             android:layout_marginTop="-4dp"
             android:layout_marginEnd="-4dp"
             android:layout_marginBottom="-4dp"
-            android:background="@drawable/bg_view_button"
             app:layout_constraintBottom_toBottomOf="@+id/iv_time_next"
             app:layout_constraintEnd_toEndOf="@+id/iv_time_next"
             app:layout_constraintStart_toStartOf="@+id/iv_time_back"
@@ -115,7 +95,7 @@
             android:id="@+id/iv_time_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginHorizontal="8dp"
             android:src="@drawable/ic_audio_time_left"
             app:layout_constraintBottom_toBottomOf="@+id/iv_pp"
             app:layout_constraintEnd_toStartOf="@+id/iv_pp"
@@ -123,8 +103,8 @@
 
         <ImageView
             android:id="@+id/iv_pp"
-            android:layout_width="@dimen/_56sdp"
-            android:layout_height="@dimen/_56sdp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:elevation="1dp"
             android:src="@drawable/ic_recording_play"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -136,7 +116,7 @@
             android:id="@+id/iv_time_next"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginHorizontal="8dp"
             android:src="@drawable/ic_audio_time_right"
             app:layout_constraintBottom_toBottomOf="@+id/iv_pp"
             app:layout_constraintStart_toEndOf="@+id/iv_pp"
@@ -157,8 +137,8 @@
         android:id="@+id/Ln_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="24dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -169,17 +149,17 @@
             android:id="@+id/tv_time_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/svn_gilroy_500"
+            android:fontFamily="@font/nunito_500"
             android:includeFontPadding="false"
             android:text="@string/_00_00"
-            android:textColor="#57576B"
-            android:textSize="@dimen/_11ssp" />
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
         <SeekBar
             android:id="@+id/sb_audio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_3sdp"
+            android:layout_marginHorizontal="3dp"
             android:layout_weight="1"
             android:maxHeight="6dp"
             android:minHeight="6dp"
@@ -192,11 +172,11 @@
             android:id="@+id/tv_time_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/svn_gilroy_500"
+            android:fontFamily="@font/nunito_500"
             android:includeFontPadding="false"
             android:text="@string/_00_00"
-            android:textColor="#57576B"
-            android:textSize="@dimen/_11ssp" />
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
@@ -204,10 +184,10 @@
         android:id="@+id/rl_volume"
         android:layout_width="52dp"
         android:layout_height="140dp"
-        android:layout_marginEnd="@dimen/_6sdp"
+        android:layout_marginEnd="6dp"
         android:layout_marginBottom="-10dp"
         android:background="@drawable/bg_radius_16_stroke_e6e6e6"
-        android:elevation="@dimen/_2sdp"
+        android:elevation="2dp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/view_button"
         app:layout_constraintEnd_toEndOf="parent">
@@ -224,23 +204,6 @@
             android:src="@drawable/ic_volume_in_seekbar" />
 
     </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/view_more"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        android:gravity="top|end"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_top">
-
-        <include
-            android:id="@+id/popup_view"
-            layout="@layout/popup_more_item" />
-
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
