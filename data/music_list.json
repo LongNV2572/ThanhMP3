@@ -1,37 +1,107 @@
 [
   {
     "id": 1,
-    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_1.jpg",
-    "ca_si": "Sơn Tùng M-TP",
-    "the_loai": "Pop",
-    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_1.mp3"
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/20min/20min.jpg",
+    "singer": "Lil Uzi Vert",
+    "category": "Rap",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/20min/20min.mp3"
   },
   {
     "id": 2,
-    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_2.jpg",
-    "ca_si": "Mỹ Tâm",
-    "the_loai": "Ballad",
-    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_2.mp3"
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/2323/2323.jpg",
+    "singer": "MCK",
+    "category": "Rap",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/2323/2323.mp3"
   },
   {
     "id": 3,
-    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_3.jpg",
-    "ca_si": "Đen Vâu",
-    "the_loai": "Rap",
-    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_3.mp3"
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Badtrip/Badtrip.jpg",
+    "singer": "MCK",
+    "category": "Rap",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Badtrip/Badtrip.mp3"
   },
   {
     "id": 4,
-    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_4.jpg",
-    "ca_si": "Hòa Minzy",
-    "the_loai": "Bolero",
-    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_4.mp3"
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/By%20your%20side/by_your_side.jpg",
+    "singer": "Sade",
+    "category": "Jazz",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/By%20your%20side/by_your_side.mp3"
   },
   {
     "id": 5,
-    "anh": "https://raw.githubusercontent.com/username/music-data/main/images/song_5.jpg",
-    "ca_si": "Jack - J97",
-    "the_loai": "Pop",
-    "link_nhac": "https://raw.githubusercontent.com/username/music-data/main/audio/song_5.mp3"
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Different%20Species/different_species.jpg",
+    "singer": "Offset, Gunna",
+    "category": "Rap",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Different%20Species/different_species.mp3"
+  },
+  {
+    "id": 6,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/E%20l%C3%A0%20kh%C3%B4ng%20th%E1%BB%83/e_la_khong_the.jpg",
+    "singer": "Anh Quân Idol",
+    "category": "Ballad",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/E%20l%C3%A0%20kh%C3%B4ng%20th%E1%BB%83/e_la_khong_the.mp3"
+  },
+  {
+    "id": 7,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Gi%C3%A3%20t%E1%BB%AB/gia_tu.jpg",
+    "singer": "Đàm Vĩnh Hưng",
+    "category": "Trữ tình",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Gi%C3%A3%20t%E1%BB%AB/gia_tu.mp3"
+  },
+  {
+    "id": 8,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Just%20the%20two%20of%20us/just_the_two_of_us.jpg",
+    "singer": "Grover Washington",
+    "category": "Jazz",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Just%20the%20two%20of%20us/just_the_two_of_us.mp3"
+  },
+  {
+    "id": 9,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Mang%20ch%E1%BB%A7ng/mang_chung.jpg",
+    "singer": "Âm Khuyết Thi Thính",
+    "category": "R&B",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Mang%20ch%E1%BB%A7ng/mang_chung.mp3"
+  },
+  {
+    "id": 10,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Moiem/moiem.jpg",
+    "singer": "DangRangTo",
+    "category": "Rap",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Moiem/moiem.mp3"
+  },
+  {
+    "id": 11,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/N%C3%AAn%20ch%E1%BB%9D%20hay%20n%C3%AAn%20qu%C3%AAn/nen_cho_hay_nen_quen.jpg",
+    "singer": "Chu Thuý Quỳnh",
+    "category": "Ballad",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/N%C3%AAn%20ch%E1%BB%9D%20hay%20n%C3%AAn%20qu%C3%AAn/nen_cho_hay_nen_quen.mp3"
+  },
+  {
+    "id": 12,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/N%E1%BA%BFu%20l%C3%BAc%20%C4%91%C3%B3/neu_luc_do.jpg",
+    "singer": "Tlinh",
+    "category": "R&B",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/N%E1%BA%BFu%20l%C3%BAc%20%C4%91%C3%B3/neu_luc_do.mp3"
+  },
+  {
+    "id": 13,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Sold%20out%20dates/sold_out_dates.jpg",
+    "singer": "Gunna, Lil Baby",
+    "category": "Rap",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Sold%20out%20dates/sold_out_dates.mp3"
+  },
+  {
+    "id": 14,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/S%C6%B0%C6%A1ng%20tr%E1%BA%AFng%20mi%E1%BB%81n%20qu%C3%AA%20ngo%E1%BA%A1i/suong_trang_mien_que_ngoai.jpg",
+    "singer": "Quang Lê",
+    "category": "Trữ tình",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/S%C6%B0%C6%A1ng%20tr%E1%BA%AFng%20mi%E1%BB%81n%20qu%C3%AA%20ngo%E1%BA%A1i/suong_trang_mien_que_ngoai.mp3"
+  },
+  {
+    "id": 15,
+    "image": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Wrongtime/wrongtime.jpg",
+    "singer": "DangRangTo, Puppy",
+    "category": "R&B",
+    "link": "https://github.com/LongNV2572/ThanhMP3/blob/main/data/Wrongtime/wrongtime.mp3"
   }
 ]
