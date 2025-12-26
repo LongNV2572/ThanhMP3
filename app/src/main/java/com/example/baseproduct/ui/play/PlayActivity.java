@@ -8,7 +8,7 @@ import android.widget.SeekBar;
 import com.bumptech.glide.Glide;
 import com.example.baseproduct.R;
 import com.example.baseproduct.base.BaseActivity;
-import com.example.baseproduct.call_api.model.MusicModel;
+import com.example.baseproduct.model.MusicModel;
 import com.example.baseproduct.databinding.ActivityPlayBinding;
 
 import java.util.Locale;

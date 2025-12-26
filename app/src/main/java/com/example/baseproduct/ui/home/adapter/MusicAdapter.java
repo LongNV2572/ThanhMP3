@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.baseproduct.call_api.model.MusicModel;
+import com.example.baseproduct.model.MusicModel;
 import com.example.baseproduct.databinding.ItemMusicBinding;
 
 import java.util.ArrayList;

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "393059512318",
+    "firebase_url": "https://thanhmp3-c51d9-default-rtdb.firebaseio.com",
+    "project_id": "thanhmp3-c51d9",
+    "storage_bucket": "thanhmp3-c51d9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393059512318:android:9359a5070d4f3b75e31aaf",
+        "android_client_info": {
+          "package_name": "com.example.baseproduct"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpRm_QlZYcg5eLnkRvvvYUb4-QEvY339Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

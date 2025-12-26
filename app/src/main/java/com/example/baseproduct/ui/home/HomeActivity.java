@@ -4,23 +4,23 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.example.baseproduct.base.BaseActivity;
-import com.example.baseproduct.call_api.api.MusicApiService;
-import com.example.baseproduct.call_api.client.RetrofitClient;
-import com.example.baseproduct.call_api.model.MusicModel;
+import com.example.baseproduct.model.MusicModel;
 import com.example.baseproduct.databinding.ActivityHomeBinding;
 import com.example.baseproduct.dialog.exit.ExitAppDialog;
 import com.example.baseproduct.ui.home.adapter.MusicAdapter;
 import com.example.baseproduct.ui.play.PlayActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
 
@@ -41,29 +41,26 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
         });
         binding.rcvData.setAdapter(musicAdapter);
 
-        MusicApiService apiService = RetrofitClient.getClient().create(MusicApiService.class);
-        Call<List<MusicModel>> call = apiService.getMusic();
+        DatabaseReference musicRef = FirebaseDatabase.getInstance().getReference("list_music");
 
-        call.enqueue(new Callback<List<MusicModel>>() {
+        musicRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onResponse(Call<List<MusicModel>> call, Response<List<MusicModel>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<MusicModel> musicList = response.body();
-                    listMusic.clear();
-                    listMusic.addAll(musicList);
-                    musicAdapter.addListData(listMusic);
-                    for (MusicModel music : musicList) {
-                        Log.d("check_data", "Song: " + music.getName() + " - " + music.getSinger());
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                listMusic.clear();
+                for (DataSnapshot child : snapshot.getChildren()) {
+                    MusicModel music = child.getValue(MusicModel.class);
+                    if (music != null) {
+                        listMusic.add(music);
                     }
-                } else {
-                    Toast.makeText(HomeActivity.this, "Failed to load data", Toast.LENGTH_SHORT).show();
                 }
+                musicAdapter.addListData(listMusic);
+                Log.d("Firebase", "Size = " + listMusic.size());
             }
 
             @Override
-            public void onFailure(Call<List<MusicModel>> call, Throwable t) {
-                Log.e("check_data", "Error: " + t.getMessage());
-                Toast.makeText(HomeActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", error.getMessage());
             }
         });
 
