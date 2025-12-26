@@ -1,7 +1,9 @@
 package com.example.baseproduct.call_api.model;
 
 
-public class MusicModel {
+import java.io.Serializable;
+
+public class MusicModel implements Serializable {
     private int id;
     private String name;
     private String image;

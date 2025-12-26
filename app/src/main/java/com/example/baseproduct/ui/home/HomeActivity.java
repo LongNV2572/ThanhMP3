@@ -1,5 +1,6 @@
 package com.example.baseproduct.ui.home;
 
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -12,6 +13,7 @@ import com.example.baseproduct.call_api.model.MusicModel;
 import com.example.baseproduct.databinding.ActivityHomeBinding;
 import com.example.baseproduct.dialog.exit.ExitAppDialog;
 import com.example.baseproduct.ui.home.adapter.MusicAdapter;
+import com.example.baseproduct.ui.play.PlayActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,9 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
     @Override
     public void initView() {
         musicAdapter = new MusicAdapter(music -> {
-
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("data", music);
+            startNextActivity(PlayActivity.class, bundle);
         });
         binding.rcvData.setAdapter(musicAdapter);
 

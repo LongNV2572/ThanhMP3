@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="24dp">
 
     <LinearLayout
         android:id="@+id/view_top"
@@ -27,7 +28,7 @@
             android:src="@drawable/ic_back" />
 
         <TextView
-            android:id="@+id/tv_tool_bar"
+            android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
@@ -46,28 +47,15 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/view_cd"
+    <ImageView
+        android:id="@+id/ivImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="18dp"
+        app:layout_constraintDimensionRatio="2:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_top">
-
-        <ImageView
-            android:id="@+id/iv_cd"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="44dp"
-            android:background="@drawable/iv_play_cd"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@+id/view_top" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_button"
@@ -77,19 +65,7 @@
         android:layout_marginVertical="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_cd">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="-4dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginEnd="-4dp"
-            android:layout_marginBottom="-4dp"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_time_next"
-            app:layout_constraintEnd_toEndOf="@+id/iv_time_next"
-            app:layout_constraintStart_toStartOf="@+id/iv_time_back"
-            app:layout_constraintTop_toTopOf="@+id/iv_time_back" />
+        app:layout_constraintTop_toBottomOf="@+id/ln_seekbar">
 
         <ImageView
             android:id="@+id/iv_time_back"
@@ -122,19 +98,10 @@
             app:layout_constraintStart_toEndOf="@+id/iv_pp"
             app:layout_constraintTop_toTopOf="@+id/iv_pp" />
 
-        <ImageView
-            android:id="@+id/iv_volume"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:src="@drawable/iv_tb_volume"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/Ln_seekbar"
+        android:id="@+id/ln_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
@@ -143,7 +110,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_button">
+        app:layout_constraintTop_toBottomOf="@+id/ivImage">
 
         <TextView
             android:id="@+id/tv_time_start"
@@ -163,7 +130,6 @@
             android:layout_weight="1"
             android:maxHeight="6dp"
             android:minHeight="6dp"
-            android:progress="50"
             android:progressDrawable="@drawable/seekbar_progress"
             android:thumb="@drawable/seekbar_thumb"
             android:thumbOffset="0dp" />
@@ -179,31 +145,6 @@
             android:textSize="12sp" />
 
     </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl_volume"
-        android:layout_width="52dp"
-        android:layout_height="140dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="-10dp"
-        android:background="@drawable/bg_radius_16_stroke_e6e6e6"
-        android:elevation="2dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/view_button"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <com.app.voice.recorder.util.custom_view.SeekBarVertical
-            android:id="@+id/sb_volume"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/ic_volume_in_seekbar" />
-
-    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
