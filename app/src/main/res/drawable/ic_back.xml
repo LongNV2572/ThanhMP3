@@ -8,13 +8,13 @@
         <path
             android:pathData="M20.25,12H3.75"
             android:strokeWidth="1.5"
-            android:strokeColor="@color/white"
+            android:strokeColor="@color/black"
             android:strokeLineCap="round"
             android:strokeLineJoin="round" />
         <path
             android:pathData="M10.5,5.25L3.75,12L10.5,18.75"
             android:strokeWidth="1.5"
-            android:strokeColor="@color/white"
+            android:strokeColor="@color/black"
             android:strokeLineCap="round"
             android:strokeLineJoin="round" />
     </group>

@@ -51,5 +51,7 @@
     <string name="_00_00_0_00_mb">00:00 | 0,00 MB</string>
     <string name="re_record">Re-record</string>
     <string name="set_as">Set As</string>
+    <string name="enter_username">Enter username</string>
+    <string name="login">Login</string>
 
 </resources>
