@@ -29,10 +29,14 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
 
     private final List<UserModel> listUser = new ArrayList<>();
     boolean isPasswordVisible = false;
+    boolean isRemember = false;
 
     @Override
     public void initView() {
         super.initView();
+
+        isRemember = SharePrefUtils.getBoolean(Constant.IS_REMEMBER_PASS, false);
+        binding.ivCheckbox.setSelected(isRemember);
 
         DatabaseReference musicRef = FirebaseDatabase.getInstance().getReference("list_user");
 
@@ -62,6 +66,12 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
     public void bindView() {
         super.bindView();
 
+        binding.ivCheckbox.setOnClickListener(v -> {
+            isRemember = !isRemember;
+            SharePrefUtils.putBoolean(Constant.IS_REMEMBER_PASS, isRemember);
+            binding.ivCheckbox.setSelected(isRemember);
+        });
+
         binding.tvLogin.setOnClickListener(v -> {
             if (binding.edtUsername.getText().toString().trim().equals("")) {
                 Toast.makeText(this, "Nhập Username", Toast.LENGTH_SHORT).show();
@@ -78,7 +88,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                 String strUser = binding.edtUsername.getText().toString().trim();
                 String strPass = binding.edtPassword.getText().toString().trim();
                 if (strUser.equals(user.getUsername()) && strPass.equals(user.getPassword())) {
-                    SharePrefUtils.getInt(Constant.USER_TYPE, user.getType());
+                    SharePrefUtils.putInt(Constant.USER_TYPE, user.getType());
+                    SharePrefUtils.putString(Constant.USER_NAME, user.getUsername());
+                    SharePrefUtils.putString(Constant.USER_PASSWORD, user.getPassword());
+
                     startNextActivity(HomeActivity.class, null);
                     break;
                 } else {

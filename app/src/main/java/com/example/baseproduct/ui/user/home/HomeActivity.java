@@ -24,6 +24,8 @@ import com.example.baseproduct.model.MusicModel;
 import com.example.baseproduct.ui.both.login.LoginActivity;
 import com.example.baseproduct.ui.both.play.PlayActivity;
 import com.example.baseproduct.ui.user.home.adapter.MusicAdapter;
+import com.example.baseproduct.util.Constant;
+import com.example.baseproduct.util.SharePrefUtils;
 import com.example.baseproduct.util.Utils;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,6 +51,8 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
 
     @Override
     public void initView() {
+        binding.tvTitle.setText("Hello " + SharePrefUtils.getString(Constant.USER_NAME, "") +" \uD83D\uDC4B");
+
         musicAdapter = new MusicAdapter(new MusicAdapter.OnMusicClickListener() {
             @Override
             public void onClick(MusicModel music) {
@@ -106,17 +110,22 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
             }
         });
 
-        binding.tvAlbum.setOnClickListener(v -> {
+        binding.btnAlbum.setOnClickListener(v -> {
             Utils.hideKeyboard(this, binding.edtSearch);
         });
 
-        binding.tvDownload.setOnClickListener(v -> {
+        binding.btnDownload.setOnClickListener(v -> {
             Utils.hideKeyboard(this, binding.edtSearch);
             Intent intent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
             startActivity(intent);
         });
 
         binding.tvLogout.setOnClickListener(v -> {
+            SharePrefUtils.putInt(Constant.USER_TYPE, 0);
+            SharePrefUtils.putString(Constant.USER_NAME, "");
+            SharePrefUtils.putString(Constant.USER_PASSWORD, "");
+            SharePrefUtils.putBoolean(Constant.IS_REMEMBER_PASS, false);
+
             startNextActivity(LoginActivity.class, null);
             finishAffinity();
         });
