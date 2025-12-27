@@ -16,8 +16,11 @@ import com.example.baseproduct.databinding.DialogDeleteMusicBinding;
 import com.example.baseproduct.dialog.exit.ExitAppDialog;
 import com.example.baseproduct.model.MusicModel;
 import com.example.baseproduct.ui.admin.home.adapter.HomeAdminAdapter;
+import com.example.baseproduct.ui.both.edit.MusicEditActivity;
 import com.example.baseproduct.ui.both.infor.InforAcitivity;
 import com.example.baseproduct.ui.both.play.PlayActivity;
+import com.example.baseproduct.util.Constant;
+import com.example.baseproduct.util.SharePrefUtils;
 import com.example.baseproduct.util.Utils;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -76,6 +79,9 @@ public class HomeAdminActivity extends BaseActivity<ActivityHomeAdminBinding> {
                         String musicId = child.getKey();
                         music.setMusicId(musicId);
 
+                        if (SharePrefUtils.getInt(Constant.ID_DATA, 0) == 0) {
+                            SharePrefUtils.putInt(Constant.ID_DATA, listMusic.size() + 1);
+                        }
                         listMusic.add(music);
                     }
                 }
@@ -133,7 +139,10 @@ public class HomeAdminActivity extends BaseActivity<ActivityHomeAdminBinding> {
     }
 
     public void onEditMusic(MusicModel music) {
-
+        Utils.hideKeyboard(HomeAdminActivity.this, binding.edtSearch);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data", music);
+        startNextActivity(MusicEditActivity.class, bundle);
     }
 
     public void onDeleteMusic(MusicModel music) {

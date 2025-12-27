@@ -20,12 +20,12 @@
             android:src="@drawable/ic_delete"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:text="Bạn có chắc chắn muốn xóa bản nhạc này chứ?"
+            android:text="Bạn có chắc chắn muốn xóa bài hát này?"
             android:textColor="@color/black"
             android:textSize="16sp" />
 

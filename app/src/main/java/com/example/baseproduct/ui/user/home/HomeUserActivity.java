@@ -86,6 +86,9 @@ public class HomeUserActivity extends BaseActivity<ActivityHomeUserBinding> {
                         listMusic.add(music);
                     }
                 }
+                if (SharePrefUtils.getInt(Constant.ID_DATA, 0) == 0) {
+                    SharePrefUtils.putInt(Constant.ID_DATA, listMusic.size() + 1);
+                }
                 musicAdapter.addListData(listMusic);
                 Log.d("Firebase", "Size = " + listMusic.size());
             }

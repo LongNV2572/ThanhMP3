@@ -32,8 +32,11 @@ public class PlayActivity extends BaseActivity<ActivityPlayBinding> {
         itemMusic = (MusicModel) getIntent().getSerializableExtra("data");
         Log.e("itemMusic", "itemMusic: " + itemMusic);
         binding.tvName.setText(itemMusic.getName());
-        Glide.with(this).load(itemMusic.getImage()).into(binding.ivImage);
-
+        if (itemMusic.getImage().isEmpty()){
+            Glide.with(this).load(R.drawable.ic_default_music).into(binding.ivImage);
+        }else  {
+            Glide.with(this).load(itemMusic.getImage()).into(binding.ivImage);
+        }
 
         handler = new Handler(getMainLooper());
 

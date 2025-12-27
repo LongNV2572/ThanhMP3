@@ -1,5 +1,6 @@
 package com.example.baseproduct.ui.admin.home.adapter;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.util.DisplayMetrics;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.baseproduct.R;
 import com.example.baseproduct.databinding.ItemMusicBinding;
 import com.example.baseproduct.databinding.PopupMoreAdminBinding;
 import com.example.baseproduct.model.MusicModel;
@@ -60,7 +62,12 @@ public class HomeAdminAdapter extends RecyclerView.Adapter<HomeAdminAdapter.Musi
             binding.tvName.setText(model.getName());
             binding.tvSinger.setText(model.getSinger());
 
-            Glide.with(binding.getRoot().getContext()).load(model.getImage()).into(binding.ivAvatar);
+            Context context = binding.getRoot().getContext();
+            if (model.getImage().isEmpty()){
+                Glide.with(context).load(R.drawable.ic_default_music).into(binding.ivAvatar);
+            }else  {
+                Glide.with(context).load(model.getImage()).into(binding.ivAvatar);
+            }
 
             binding.getRoot().setOnClickListener(v -> {
                 if (listener != null) {
