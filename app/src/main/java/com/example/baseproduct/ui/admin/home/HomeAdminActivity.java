@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -49,7 +50,7 @@ public class HomeAdminActivity extends BaseActivity<ActivityHomeAdminBinding> {
         musicAdapter = new HomeAdminAdapter(new HomeAdminAdapter.OnMusicClickListener() {
             @Override
             public void onClick(MusicModel music) {
-                Utils.hideKeyboard(HomeAdminActivity.this, binding.edtSearch);
+                Utils.hideKeyboard(HomeAdminActivity.this);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("data", music);
                 startNextActivity(PlayActivity.class, bundle);
@@ -101,12 +102,12 @@ public class HomeAdminActivity extends BaseActivity<ActivityHomeAdminBinding> {
     @Override
     public void bindView() {
         binding.ivInfor.setOnClickListener(v -> {
-            Utils.hideKeyboard(this, binding.edtSearch);
+            Utils.hideKeyboard(this);
             startNextActivity(InforAcitivity.class, null);
         });
 
         binding.btnAdd.setOnClickListener(v -> {
-            Utils.hideKeyboard(this, binding.edtSearch);
+            Utils.hideKeyboard(this);
             startNextActivity(MusicAddActivity.class, null);
         });
 
@@ -114,16 +115,21 @@ public class HomeAdminActivity extends BaseActivity<ActivityHomeAdminBinding> {
             @Override
             public void afterTextChanged(Editable s) {
                 List<MusicModel> listSearch = new ArrayList<>();
-                String edtSearch = binding.edtSearch.getText().toString().trim();
+                String edtSearch = binding.edtSearch.getText().toString().trim().toLowerCase();
                 if (edtSearch.isEmpty()) {
                     listSearch.addAll(listMusic);
                 } else {
                     for (int i = 0; i < listMusic.size(); i++) {
                         MusicModel item = listMusic.get(i);
-                        if (item.getName().contains(edtSearch) || item.getSinger().contains(edtSearch)) {
+                        if (item.getName().toLowerCase().contains(edtSearch) || item.getSinger().toLowerCase().contains(edtSearch)) {
                             listSearch.add(listMusic.get(i));
                         }
                     }
+                }
+                if (listSearch.isEmpty()){
+                    binding.lnEmpty.setVisibility(View.VISIBLE);
+                }else  {
+                    binding.lnEmpty.setVisibility(View.GONE);
                 }
                 musicAdapter.addListData(listSearch);
             }
@@ -141,7 +147,7 @@ public class HomeAdminActivity extends BaseActivity<ActivityHomeAdminBinding> {
     }
 
     public void onEditMusic(MusicModel music) {
-        Utils.hideKeyboard(HomeAdminActivity.this, binding.edtSearch);
+        Utils.hideKeyboard(HomeAdminActivity.this);
         Bundle bundle = new Bundle();
         bundle.putSerializable("data", music);
         startNextActivity(MusicEditActivity.class, bundle);

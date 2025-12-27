@@ -12,15 +12,16 @@ import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.GravityCompat;
 
 import com.example.baseproduct.base.BaseActivity;
 import com.example.baseproduct.databinding.ActivityHomeUserBinding;
 import com.example.baseproduct.dialog.exit.ExitAppDialog;
 import com.example.baseproduct.model.MusicModel;
+import com.example.baseproduct.ui.both.infor.InforAcitivity;
 import com.example.baseproduct.ui.both.play.PlayActivity;
 import com.example.baseproduct.ui.user.home.adapter.MusicAdapter;
 import com.example.baseproduct.util.Constant;
@@ -55,7 +56,7 @@ public class HomeUserActivity extends BaseActivity<ActivityHomeUserBinding> {
         musicAdapter = new MusicAdapter(new MusicAdapter.OnMusicClickListener() {
             @Override
             public void onClick(MusicModel music) {
-                Utils.hideKeyboard(HomeUserActivity.this, binding.edtSearch);
+                Utils.hideKeyboard(HomeUserActivity.this);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("data", music);
                 startNextActivity(PlayActivity.class, bundle);
@@ -103,35 +104,30 @@ public class HomeUserActivity extends BaseActivity<ActivityHomeUserBinding> {
 
     @Override
     public void bindView() {
-        binding.ivNavigate.setOnClickListener(v -> {
-            Utils.hideKeyboard(this, binding.edtSearch);
-            if (binding.getRoot().isDrawerOpen(GravityCompat.START)) {
-                binding.getRoot().closeDrawer(GravityCompat.START);
-            } else {
-                binding.getRoot().openDrawer(GravityCompat.START);
-            }
-        });
-
-        binding.btnDownload.setOnClickListener(v -> {
-            Utils.hideKeyboard(this, binding.edtSearch);
-            Intent intent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
-            startActivity(intent);
+        binding.ivInfor.setOnClickListener(v -> {
+            Utils.hideKeyboard(this);
+            startNextActivity(InforAcitivity.class, null);
         });
 
         binding.edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
                 List<MusicModel> listSearch = new ArrayList<>();
-                String edtSearch = binding.edtSearch.getText().toString().trim();
+                String edtSearch = binding.edtSearch.getText().toString().trim().toLowerCase();
                 if (edtSearch.isEmpty()) {
                     listSearch.addAll(listMusic);
                 } else {
                     for (int i = 0; i < listMusic.size(); i++) {
                         MusicModel item = listMusic.get(i);
-                        if (item.getName().contains(edtSearch) || item.getSinger().contains(edtSearch)) {
+                        if (item.getName().toLowerCase().contains(edtSearch) || item.getSinger().toLowerCase().contains(edtSearch)) {
                             listSearch.add(listMusic.get(i));
                         }
                     }
+                }
+                if (listSearch.isEmpty()){
+                    binding.lnEmpty.setVisibility(View.VISIBLE);
+                }else  {
+                    binding.lnEmpty.setVisibility(View.GONE);
                 }
                 musicAdapter.addListData(listSearch);
             }
