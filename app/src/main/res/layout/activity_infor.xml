@@ -73,12 +73,12 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/nunito_600"
             android:gravity="center_vertical"
-            android:text="@string/t_n"
+            android:text="Tài khoản:"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvUserName"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="12dp"
@@ -91,5 +91,52 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_600"
+            android:gravity="center_vertical"
+            android:text="Mật khẩu:"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPassword"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_500"
+            android:gravity="end|center_vertical"
+            android:text="@string/t_n"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_radius_32"
+        android:backgroundTint="@color/color_main"
+        android:gravity="center"
+        android:text="Đăng xuất"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 </LinearLayout>

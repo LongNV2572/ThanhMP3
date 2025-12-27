@@ -4,6 +4,7 @@ import android.os.Handler;
 
 import com.example.baseproduct.base.BaseActivity;
 import com.example.baseproduct.databinding.ActivitySplashBinding;
+import com.example.baseproduct.ui.admin.home.HomeAdminActivity;
 import com.example.baseproduct.ui.both.login.LoginActivity;
 import com.example.baseproduct.ui.user.home.HomeUserActivity;
 import com.example.baseproduct.util.Constant;
@@ -27,7 +28,11 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
 
     public void startNextScreen() {
         if (SharePrefUtils.getBoolean(Constant.IS_REMEMBER_PASS, false)) {
-            startNextActivity(HomeUserActivity.class, null);
+            if (SharePrefUtils.getInt(Constant.USER_TYPE, 1) == 0) {
+                startNextActivity(HomeAdminActivity.class, null);
+            } else {
+                startNextActivity(HomeUserActivity.class, null);
+            }
         } else {
             startNextActivity(LoginActivity.class, null);
         }

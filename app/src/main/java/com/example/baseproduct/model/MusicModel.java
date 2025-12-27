@@ -4,12 +4,21 @@ package com.example.baseproduct.model;
 import java.io.Serializable;
 
 public class MusicModel implements Serializable {
+    private String musicId;
     private int id;
     private String name;
     private String image;
     private String singer;
     private String category;
     private String link;
+
+    public String getMusicId() {
+        return musicId;
+    }
+
+    public void setMusicId(String musicId) {
+        this.musicId = musicId;
+    }
 
     public int getId() {
         return id;

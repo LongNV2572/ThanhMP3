@@ -21,7 +21,6 @@ import com.example.baseproduct.base.BaseActivity;
 import com.example.baseproduct.databinding.ActivityHomeUserBinding;
 import com.example.baseproduct.dialog.exit.ExitAppDialog;
 import com.example.baseproduct.model.MusicModel;
-import com.example.baseproduct.ui.both.login.LoginActivity;
 import com.example.baseproduct.ui.both.play.PlayActivity;
 import com.example.baseproduct.ui.user.home.adapter.MusicAdapter;
 import com.example.baseproduct.util.Constant;
@@ -110,24 +109,10 @@ public class HomeUserActivity extends BaseActivity<ActivityHomeUserBinding> {
             }
         });
 
-        binding.btnAlbum.setOnClickListener(v -> {
-            Utils.hideKeyboard(this, binding.edtSearch);
-        });
-
         binding.btnDownload.setOnClickListener(v -> {
             Utils.hideKeyboard(this, binding.edtSearch);
             Intent intent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
             startActivity(intent);
-        });
-
-        binding.tvLogout.setOnClickListener(v -> {
-            SharePrefUtils.putInt(Constant.USER_TYPE, 0);
-            SharePrefUtils.putString(Constant.USER_NAME, "");
-            SharePrefUtils.putString(Constant.USER_PASSWORD, "");
-            SharePrefUtils.putBoolean(Constant.IS_REMEMBER_PASS, false);
-
-            startNextActivity(LoginActivity.class, null);
-            finishAffinity();
         });
 
         binding.edtSearch.addTextChangedListener(new TextWatcher() {

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="4dp"
         android:layout_marginStart="8dp"
@@ -16,11 +16,10 @@
         android:paddingVertical="8dp">
 
         <LinearLayout
-            android:id="@+id/btnAddToAlbum"
+            android:id="@+id/btnEdit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center_vertical"
-            android:visibility="gone"
             android:orientation="horizontal"
             android:paddingHorizontal="12dp">
 
@@ -28,20 +27,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:src="@drawable/ic_add_to_album" />
+                android:src="@drawable/ic_edit" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_500"
-                android:text="Thêm vào album"
+                android:text="Sửa bài hát"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btnDownload"
+            android:id="@+id/btnDelete"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center_vertical"
@@ -52,14 +51,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:src="@drawable/ic_download" />
+                android:src="@drawable/ic_delete" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_500"
-                android:text="Tải xuống"
-                android:textColor="@color/black"
+                android:text="Xóa bài hát"
+                android:textColor="#FFF24822"
                 android:textSize="14sp" />
 
         </LinearLayout>

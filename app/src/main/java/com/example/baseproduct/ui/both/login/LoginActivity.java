@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import com.example.baseproduct.base.BaseActivity;
 import com.example.baseproduct.databinding.ActivityLoginBinding;
 import com.example.baseproduct.model.UserModel;
+import com.example.baseproduct.ui.admin.home.HomeAdminActivity;
 import com.example.baseproduct.ui.user.home.HomeUserActivity;
 import com.example.baseproduct.util.Constant;
 import com.example.baseproduct.util.SharePrefUtils;
@@ -89,10 +90,15 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                 String strPass = binding.edtPassword.getText().toString().trim();
                 if (strUser.equals(user.getUsername()) && strPass.equals(user.getPassword())) {
                     SharePrefUtils.putInt(Constant.USER_TYPE, user.getType());
-                    SharePrefUtils.putString(Constant.USER_NAME, user.getUsername());
+                    SharePrefUtils.putString(Constant.USER_NAME, user.getName());
+                    SharePrefUtils.putString(Constant.USER_ACCOUNT, user.getUsername());
                     SharePrefUtils.putString(Constant.USER_PASSWORD, user.getPassword());
 
-                    startNextActivity(HomeUserActivity.class, null);
+                    if (user.getType() == 0) {
+                        startNextActivity(HomeAdminActivity.class, null);
+                    } else {
+                        startNextActivity(HomeUserActivity.class, null);
+                    }
                     break;
                 } else {
                     if (i == listUser.size() - 1) {
@@ -105,13 +111,9 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
 
         binding.ivPass.setOnClickListener(v -> {
             if (isPasswordVisible) {
-                binding.edtPassword.setInputType(
-                        InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD
-                );
+                binding.edtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
             } else {
-                binding.edtPassword.setInputType(
-                        InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                );
+                binding.edtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
             }
 
             binding.edtPassword.setSelection(binding.edtPassword.getText().length());

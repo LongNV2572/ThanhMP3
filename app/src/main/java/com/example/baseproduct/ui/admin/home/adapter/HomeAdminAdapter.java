@@ -1,4 +1,4 @@
-package com.example.baseproduct.ui.user.home.adapter;
+package com.example.baseproduct.ui.admin.home.adapter;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,18 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.baseproduct.databinding.ItemMusicBinding;
-import com.example.baseproduct.databinding.PopupMoreUserBinding;
+import com.example.baseproduct.databinding.PopupMoreAdminBinding;
 import com.example.baseproduct.model.MusicModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
+public class HomeAdminAdapter extends RecyclerView.Adapter<HomeAdminAdapter.MusicViewHolder> {
 
     private final List<MusicModel> musicList;
     private final OnMusicClickListener listener;
 
-    public MusicAdapter(OnMusicClickListener listener) {
+    public HomeAdminAdapter(OnMusicClickListener listener) {
         this.musicList = new ArrayList<>();
         this.listener = listener;
     }
@@ -76,7 +76,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
 
     private void showMorePopup(View anchorView, MusicModel item) {
         LayoutInflater inflater = LayoutInflater.from(anchorView.getContext());
-        PopupMoreUserBinding binding = PopupMoreUserBinding.inflate(inflater);
+        PopupMoreAdminBinding binding = PopupMoreAdminBinding.inflate(inflater);
 
         PopupWindow popupWindow = new PopupWindow(
                 binding.getRoot(),
@@ -119,14 +119,14 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
             popupWindow.showAsDropDown(anchorView, 0, 8);
         }
 
-        binding.btnAddToAlbum.setOnClickListener(v -> {
+        binding.btnEdit.setOnClickListener(v -> {
             popupWindow.dismiss();
-            listener.onAddToAlbum(item);
+            listener.onEdit(item);
         });
 
-        binding.btnDownload.setOnClickListener(v -> {
+        binding.btnDelete.setOnClickListener(v -> {
             popupWindow.dismiss();
-            listener.onDownload(item);
+            listener.onDelete(item);
         });
     }
 
@@ -142,8 +142,8 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
     public interface OnMusicClickListener {
         void onClick(MusicModel music);
 
-        void onAddToAlbum(MusicModel music);
+        void onEdit(MusicModel music);
 
-        void onDownload(MusicModel music);
+        void onDelete(MusicModel music);
     }
 }

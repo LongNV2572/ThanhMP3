@@ -46,6 +46,7 @@
             android:hint="Nhập tên tài khoản"
             android:imeOptions="actionDone"
             android:inputType="text"
+            android:maxLength="20"
             android:textColor="@color/black"
             android:textColorHint="@color/color_9CA3AF"
             android:textSize="16sp" />
@@ -81,6 +82,7 @@
             android:hint="Nhập mật khẩu"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
+            android:maxLength="20"
             android:textColor="@color/black"
             android:textColorHint="@color/color_9CA3AF"
             android:textSize="16sp" />
@@ -97,13 +99,13 @@
         android:id="@+id/lnCheckbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="12dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lnPassword"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toBottomOf="@+id/lnPassword">
 
         <ImageView
             android:id="@+id/ivCheckbox"

@@ -3,12 +3,20 @@ package com.example.baseproduct.model;
 import java.io.Serializable;
 
 public class UserModel implements Serializable {
-
+    private String userId;
     private int id;
     private String name;
     private String username;
     private String password;
     private int type;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String musicId) {
+        this.userId = musicId;
+    }
 
     public int getId() {
         return id;
