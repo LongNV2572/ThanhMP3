@@ -20,7 +20,7 @@
             android:ellipsize="end"
             android:includeFontPadding="false"
             android:singleLine="true"
-            android:text="@string/quit"
+            android:text="Thoát"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
@@ -30,7 +30,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:text="@string/are_you_sure_want_to_quit_app"
+            android:text="Bạn chắc chắn muốn thoát app chứ?"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -46,7 +46,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/cancel"
+                android:text="Hủy bỏ"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -58,7 +58,7 @@
                 android:background="@drawable/bg_radius_32"
                 android:backgroundTint="@color/color_main"
                 android:gravity="center"
-                android:text="@string/quit"
+                android:text="Đồng ý"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 

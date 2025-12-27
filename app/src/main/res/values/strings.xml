@@ -58,5 +58,7 @@
     <string name="download">Download</string>
     <string name="add_to_album">Add to album</string>
     <string name="remember_password">Remember password</string>
+    <string name="h_s">Hồ sơ</string>
+    <string name="t_n">Tên:</string>
 
 </resources>

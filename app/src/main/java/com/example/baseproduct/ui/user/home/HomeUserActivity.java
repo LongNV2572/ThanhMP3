@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 
 import com.example.baseproduct.base.BaseActivity;
-import com.example.baseproduct.databinding.ActivityHomeBinding;
+import com.example.baseproduct.databinding.ActivityHomeUserBinding;
 import com.example.baseproduct.dialog.exit.ExitAppDialog;
 import com.example.baseproduct.model.MusicModel;
 import com.example.baseproduct.ui.both.login.LoginActivity;
@@ -36,11 +36,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
+public class HomeUserActivity extends BaseActivity<ActivityHomeUserBinding> {
 
     @Override
-    public ActivityHomeBinding getBinding() {
-        return ActivityHomeBinding.inflate(getLayoutInflater());
+    public ActivityHomeUserBinding getBinding() {
+        return ActivityHomeUserBinding.inflate(getLayoutInflater());
     }
 
     private MusicAdapter musicAdapter;
@@ -51,12 +51,12 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
 
     @Override
     public void initView() {
-        binding.tvTitle.setText("Hello " + SharePrefUtils.getString(Constant.USER_NAME, "") +" \uD83D\uDC4B");
+        binding.tvTitle.setText("Xin chào " + SharePrefUtils.getString(Constant.USER_NAME, "") + " \uD83D\uDC4B");
 
         musicAdapter = new MusicAdapter(new MusicAdapter.OnMusicClickListener() {
             @Override
             public void onClick(MusicModel music) {
-                Utils.hideKeyboard(HomeActivity.this, binding.edtSearch);
+                Utils.hideKeyboard(HomeUserActivity.this, binding.edtSearch);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("data", music);
                 startNextActivity(PlayActivity.class, bundle);
@@ -182,7 +182,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
                 Log.d("DownloadReceiver", "Received ID: " + id + ", Expected ID: " + downloadId);
 
                 if (id == downloadId) {
-                    Toast.makeText(context, "Download hoàn tất 🎵", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Tải xuống hoàn tất 🎵", Toast.LENGTH_LONG).show();
                     Log.d("DownloadReceiver", "Toast shown!");
                 }
             }

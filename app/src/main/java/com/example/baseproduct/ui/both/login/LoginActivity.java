@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import com.example.baseproduct.base.BaseActivity;
 import com.example.baseproduct.databinding.ActivityLoginBinding;
 import com.example.baseproduct.model.UserModel;
-import com.example.baseproduct.ui.user.home.HomeActivity;
+import com.example.baseproduct.ui.user.home.HomeUserActivity;
 import com.example.baseproduct.util.Constant;
 import com.example.baseproduct.util.SharePrefUtils;
 import com.google.firebase.database.DataSnapshot;
@@ -92,7 +92,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                     SharePrefUtils.putString(Constant.USER_NAME, user.getUsername());
                     SharePrefUtils.putString(Constant.USER_PASSWORD, user.getPassword());
 
-                    startNextActivity(HomeActivity.class, null);
+                    startNextActivity(HomeUserActivity.class, null);
                     break;
                 } else {
                     if (i == listUser.size() - 1) {
