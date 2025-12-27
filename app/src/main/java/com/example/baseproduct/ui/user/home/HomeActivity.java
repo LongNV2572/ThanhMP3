@@ -44,6 +44,8 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
     private MusicAdapter musicAdapter;
     private final List<MusicModel> listMusic = new ArrayList<>();
     private long downloadId;
+    private BroadcastReceiver downloadCompleteReceiver;
+
 
     @Override
     public void initView() {
@@ -91,11 +93,6 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
             }
         });
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(onDownloadComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_NOT_EXPORTED);
-        } else {
-            registerReceiver(onDownloadComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-        }
     }
 
     @Override
@@ -155,34 +152,78 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
     }
 
     public void downloadMp3(MusicModel item) {
+        Log.d("Download", "Starting download for: " + item.getName());
+
+        // Hủy receiver cũ nếu có
+        if (downloadCompleteReceiver != null) {
+            try {
+                unregisterReceiver(downloadCompleteReceiver);
+            } catch (Exception e) {
+                // Ignore
+            }
+        }
+
+        // Đăng ký receiver MỚI ngay trước khi download
+        downloadCompleteReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.d("DownloadReceiver", "onReceive called!");
+
+                long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                Log.d("DownloadReceiver", "Received ID: " + id + ", Expected ID: " + downloadId);
+
+                if (id == downloadId) {
+                    Toast.makeText(context, "Download hoàn tất 🎵", Toast.LENGTH_LONG).show();
+                    Log.d("DownloadReceiver", "Toast shown!");
+                }
+            }
+        };
+
+        IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(downloadCompleteReceiver, filter, Context.RECEIVER_EXPORTED);
+        } else {
+            registerReceiver(downloadCompleteReceiver, filter);
+        }
+
+        Log.d("DownloadReceiver", "Receiver registered successfully");
+
+        // Bắt đầu download
         DownloadManager downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
         Uri uri = Uri.parse(item.getLink());
+        Log.d("Download", "URI: " + uri.toString());
 
+        DownloadManager.Request request = getRequest(item, uri);
+
+        downloadId = downloadManager.enqueue(request);
+        Log.d("Download", "Download ID: " + downloadId);
+
+        Toast.makeText(this, "Đang tải xuống...", Toast.LENGTH_SHORT).show();
+    }
+
+    private static DownloadManager.Request getRequest(MusicModel item, Uri uri) {
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setTitle(item.getSinger() + " - " + item.getName());
         request.setDescription("Downloading mp3...");
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MUSIC, item.getName() + ".mp3");
-        downloadId = downloadManager.enqueue(request);
-
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+        return request;
     }
 
-    //dùng để hiển thị thông báo khi người dùng tải xong
-    private final BroadcastReceiver onDownloadComplete = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-
-//            if (id == downloadId) {
-                Toast.makeText(context, "Download hoàn tất 🎵", Toast.LENGTH_SHORT).show();
-//            }
-        }
-    };
     @Override
-    protected void onStop() {
-        super.onStop();
-        unregisterReceiver(onDownloadComplete);
+    protected void onDestroy() {
+        super.onDestroy();
+        if (downloadCompleteReceiver != null) {
+            try {
+                unregisterReceiver(downloadCompleteReceiver);
+                Log.d("DownloadReceiver", "Receiver unregistered in onDestroy");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
