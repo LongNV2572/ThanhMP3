@@ -1,4 +1,4 @@
-package com.example.baseproduct.ui.login;
+package com.example.baseproduct.ui.both.login;
 
 import android.text.InputType;
 import android.util.Log;
@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import com.example.baseproduct.base.BaseActivity;
 import com.example.baseproduct.databinding.ActivityLoginBinding;
 import com.example.baseproduct.model.UserModel;
-import com.example.baseproduct.ui.home.HomeActivity;
+import com.example.baseproduct.ui.user.home.HomeActivity;
+import com.example.baseproduct.util.Constant;
+import com.example.baseproduct.util.SharePrefUtils;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -75,7 +77,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                 UserModel user = listUser.get(i);
                 String strUser = binding.edtUsername.getText().toString().trim();
                 String strPass = binding.edtPassword.getText().toString().trim();
-                if (strUser.equals(user.getName()) && strPass.equals(user.getPassword())) {
+                if (strUser.equals(user.getUsername()) && strPass.equals(user.getPassword())) {
+                    SharePrefUtils.getInt(Constant.USER_TYPE, user.getType());
                     startNextActivity(HomeActivity.class, null);
                     break;
                 } else {

@@ -1,11 +1,10 @@
-package com.example.baseproduct.ui.splash;
+package com.example.baseproduct.ui.both.splash;
 
 import android.os.Handler;
 
 import com.example.baseproduct.base.BaseActivity;
 import com.example.baseproduct.databinding.ActivitySplashBinding;
-import com.example.baseproduct.ui.home.HomeActivity;
-import com.example.baseproduct.ui.login.LoginActivity;
+import com.example.baseproduct.ui.both.login.LoginActivity;
 import com.example.baseproduct.util.SharePrefUtils;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding> {

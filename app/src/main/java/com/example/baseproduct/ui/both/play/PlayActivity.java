@@ -1,4 +1,4 @@
-package com.example.baseproduct.ui.play;
+package com.example.baseproduct.ui.both.play;
 
 import android.media.MediaPlayer;
 import android.os.Handler;

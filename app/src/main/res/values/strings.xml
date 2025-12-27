@@ -53,5 +53,9 @@
     <string name="set_as">Set As</string>
     <string name="enter_username">Enter username</string>
     <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="album">Album</string>
+    <string name="download">Download</string>
+    <string name="add_to_album">Add to album</string>
 
 </resources>
