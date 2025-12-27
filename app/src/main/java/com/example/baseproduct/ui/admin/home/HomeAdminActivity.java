@@ -16,6 +16,7 @@ import com.example.baseproduct.databinding.DialogDeleteMusicBinding;
 import com.example.baseproduct.dialog.exit.ExitAppDialog;
 import com.example.baseproduct.model.MusicModel;
 import com.example.baseproduct.ui.admin.home.adapter.HomeAdminAdapter;
+import com.example.baseproduct.ui.both.add.MusicAddActivity;
 import com.example.baseproduct.ui.both.edit.MusicEditActivity;
 import com.example.baseproduct.ui.both.infor.InforAcitivity;
 import com.example.baseproduct.ui.both.play.PlayActivity;
@@ -106,6 +107,7 @@ public class HomeAdminActivity extends BaseActivity<ActivityHomeAdminBinding> {
 
         binding.btnAdd.setOnClickListener(v -> {
             Utils.hideKeyboard(this, binding.edtSearch);
+            startNextActivity(MusicAddActivity.class, null);
         });
 
         binding.edtSearch.addTextChangedListener(new TextWatcher() {
